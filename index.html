@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Election</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+background: #D7D2CB;
+     
+      color: #F3F0E3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: fit-content;
+    }
+
+    /* Header with logo */
+    header {
+      width: 100%;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+  background: #115363;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000; 
+      flex-direction: row;
+    }
+
+    header img {
+        margin-left: 30px;
+      height: 65px;
+      width: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0d47a1;
+    }
+
+    header h1 {
+      margin-left: 15px;
+      font-size: 20px;
+      color: #050505;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: "Times New Roman", Times, serif;
+    }
+/* Intro paragraph */
+  
+    /* Card container */
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+      align-items: center;
+      margin-left: 20px;
+      /* height: 50vh; */
+      
+    }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* stops horizontal scroll */
+}
+    /* Card design */
+    .card {
+      width: 360px;
+      height: 160px;
+      background: #568A97;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.491);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #030d1c;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+       z-index: 10;
+    }
+
+    /* Hover effect with background animation */
+    /* .card::before {
+      content: "";
+       z-index: 0;
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, #0d47a1, #0b0a0a);
+      transition: left 0.4s ease;
+     
+      z-index: 0;
+      will-change: transform;
+    } */
+.intro-text{
+    color: #030d1c;
+       font-weight: 400;
+       font-family: "Times New Roman", Times, serif;
+}
+    /* .card:hover::before {
+      left: 0;
+    }
+
+    .card span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card:hover {
+      color: #fff;
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    } */
+
+    .card {
+  position: relative;
+  overflow: hidden; /* stops flashing at edges */
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* still sliding from left */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #0d47a1, #0b0a0a);
+  transition: left 0.5s ease; /* smooths it out */
+  z-index: 0;
+}
+
+.card:hover::before {
+  left: 0; /* slides in fully */
+}
+
+.card span {
+  position: relative;
+  z-index: 1; /* keep text above */
+}
+
+.card:hover {
+  color: #fff;
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 18px;
+      }
+      .card-container {
+        gap: 20px;
+        margin-top: 50px;
+      }
+      .card {
+        width: 220px;
+        height: 140px;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header h1 {
+        margin: 8px 0 0 0;
+        font-size: 16px;
+      }
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+      }
+      .card {
+        width: 90%;
+        max-width: 300px;
+        height: 130px;
+        font-size: 16px;
+      }
+
+    }
+     /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 15px;
+      text-align: center;
+      background: #040404dd;
+      color: #1f4894;
+      font-size: 14px;
+      width: 100%;
+      box-shadow: 0 -3px 8px rgba(0,0,0,0.15);
+    }
+
+    footer a {
+      display: block;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #2a5298;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      color: #6a11cb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo Section -->
+  <header>
+    <img src="./images/sveep.jpg" alt="Logo">
+    <h1>Election Portal</h1>
+  </header>
+<p class="intro-text">
+   Welcome to the Election 2025 Portal. Access your BLO details and view the Election Roll by clicking below
+  </p>
+
+  <!-- Card Section -->
+  <div class="card-container">
+    <a href="https://share.google/wqCJ5jnYLYVEdFOlH" class="card" target="_blank">
+      <span>To know your B L O</span>
+    </a>
+    <a href="https://electoralsearch.eci.gov.in/" class="card" target="_blank">
+      <span>For Electoral Roll Search</span>
+    </a>
+  </div>
+   <footer>
+    
+    <a >Terms & Conditions apply</a>
+
+   <a> Add your details as per your Voters ID</a>
+  </footer>
+
+</body>
+</html>
